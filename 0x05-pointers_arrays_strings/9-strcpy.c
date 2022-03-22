@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "main.h"
 /**
  * _strcpy - copies a string pointed to by scr
  * including the terminating null byte('\0')
