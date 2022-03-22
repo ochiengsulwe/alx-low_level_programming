@@ -4,7 +4,7 @@
  *
  * Return: always 0
  */
-in main(void)
+int main(void)
 {
 	char i;
 
