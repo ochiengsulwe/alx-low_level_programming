@@ -3,13 +3,13 @@
 /**
  * main - prints all posible combinations of two digits
  *
- * Return: Always 0
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
 	int i, j;
 
-	for (i = '0'; i < 9; i++)
+	for (i = '0'; i < '9'; i++)
 	{
 		for (j = i + 1; j <= '9'; j++)
 		{
