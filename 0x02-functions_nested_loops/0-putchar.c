@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * main - prints to console
+ * main -prints to console
  *
  * Description: prints _putchar string to console
  *
@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-	char text[] = "_putchar"
+	char text[] = "_putchar";
 	int i = 0;
 
 	while (text[i] != 0)
@@ -19,4 +19,4 @@ int main(void)
 	_putchar('\n');
 
 	return (0);
-}	
+}
