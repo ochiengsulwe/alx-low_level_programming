@@ -13,11 +13,11 @@ int main(void)
 
 	for (i = 1; i <= 100; i++)
 	{
-		if (i % 3 == 0 && i % 5 != 0)
+		if (i % 3 == 0 && i % != 5)
 		{
 			printf(" Fizz");
 		}
-		else if (i % 5 == 0 && i % 3 != 0)
+		else if (i % 5 == 0 && i % != 3)
 		{
 			printf(" Buzz");
 		}
@@ -31,7 +31,7 @@ int main(void)
 		}
 		else
 		{
-			rintf(" %d", i);
+			printf(" %d", i);
 		}
 	}
 	printf("\n");
