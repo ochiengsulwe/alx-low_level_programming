@@ -8,7 +8,7 @@
  * @src: source string
  * @n: an integer to work on
  *
- * return: p
+ * Return: returns *p
  */
 
 char *_strncat(char *dest, char *src, int n);
