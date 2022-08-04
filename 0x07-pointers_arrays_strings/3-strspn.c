@@ -26,7 +26,7 @@ unsigned int _strspn(char *s, char *accept)
 		if (flag == 0)
 			break;
 		cont += 1;
-		s++:
+		s++;
 	}
 	return (cont);
 }
