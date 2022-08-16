@@ -3,35 +3,48 @@
 #include <stdlib.h>
 
 /**
- * main - check the code
- * Description - add two numbers
- * @argc: variable used
- * @argv: variable used
- * Return: int
+ * is_num - iterate through each argv to test if it's a number
+ * @argvv: variable vector
+ * Return: true only if entire string is a number, false if not
+ */
+
+bool is_num(char *argvv)
+{
+	int j = 0;
+
+	for (j = 0; argvv[j]; j++)
+	{
+		if (!(argvv[j] >= '0' && argvv[j] <= '9'))
+			return (0);
+	}
+	return (1);
+}
+
+/**
+ * main - print sum if all arguments given are numbers
+ * @argc: argument counter
+ * @argv: arguments
+ * Return: 0 on success, 1 if an argument wasn't a number
  */
 
 int main(int argc, char *argv[])
 {
-	int i;
-	int sum;
-	int num;
-	char *p;
+	int i = 1;
+	int sum = 0;
 
-
-
-	sum = 0;
-	if (argc > 1)
+	/* check all arguments to add numbers */
+	while (i < argc)
 	{
-		for (i = 1; argv[i]; i++)
+		if (is_num(argv[i]))
+			sum += atoi(argv[i]);
+		else
 		{
-			num = strtol(argv[i], &p, 10);
-			if (!*p)
-				sum += num;
-			else
-			{
-				printf("Error\n");
-				return (1);
-			}
+			printf("Error\n");
+			return (1);
 		}
+		i++;
 	}
+	printf("%d\n", sum);
+
+	return (0);
 }
