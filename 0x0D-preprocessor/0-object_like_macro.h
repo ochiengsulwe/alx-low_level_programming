@@ -1,7 +1,9 @@
-#include <stdlib.h>
-#include <stdio.h>
 #ifndef SIZE_H
 #define SIZE_H
+
+#include <stdlib.h>
+#include <stdio.h>
+
 
 /* a header file that defines SIZE */
 
