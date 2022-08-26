@@ -1,6 +1,6 @@
-#ifndef __FILE__H
-#define __FILE__H
+#include <stdio.h>
 
-#define FILE
-
-#endif /*FILE*/
+int main() {
+	printf(__File__)
+		return 0;
+}
