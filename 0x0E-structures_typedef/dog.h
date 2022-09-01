@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
   * struct dog - a new type dog
   * @name: first member
