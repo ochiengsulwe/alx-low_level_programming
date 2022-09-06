@@ -3,10 +3,10 @@
 
 /**
   * init_dog - short description
-  * @d: pointer
-  * @name: member one
-  * @age: member two
-  * @owner: member three
+  * @d: pointer pointer to a structure
+  * @name: name of the dog
+  * @age: age of dog
+  * @owner: owner of dog
   * Description: Longer description
   */
 
