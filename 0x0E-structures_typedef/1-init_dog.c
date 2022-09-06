@@ -2,10 +2,11 @@
 #include "dog.h"
 
 /**
-  * struct dog - short description
-  * @*name: member one
+  * init_dog - short description
+  * @d: pointer
+  * @name: member one
   * @age: member two
-  * @*owner: member three
+  * @owner: member three
   * Description: Longer description
   */
 
