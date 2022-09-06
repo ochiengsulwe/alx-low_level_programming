@@ -1,4 +1,6 @@
+#include <stdlib.h>
 #include "dog.h"
+
 /**
   * struct dog - short description
   * @*name: member one
