@@ -18,6 +18,9 @@ void jack_bauer(void)
 					_putchar(a);
 					_putchar(b);
 					_putchar(':');
+					_putchar(c);
+					_putchar(d);
+					_putchar('\n');
 
 					if (b == '3' && c == '5' && d == '9')
 					{
