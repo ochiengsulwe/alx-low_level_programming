@@ -1,22 +1,31 @@
 #include "main.h"
 /**
- * print_last_digit - prints the last digit of a numer.
- * @n: digit to find the last place of.
- * Return: The last digit.
+ * jack_bauer - prints every minutes of the day, starting from 00:00 to 23:59
+ * Return: nothing (void)
  */
-int print_last_digit(int n)
+void jack_bauer(void)
 {
-	int a;
+	int a, b, c, d;
 
-	if (n < 0)
-	{n = -n; }
+	for (a = '0'; a <= '2'; a++)
+	{
+		for (b = '0'; b <= '9'; b++)
+		{
+			for (c = '0'; c <= '5'; c++)
+			{
+				for (d = '0'; d <= '9'; d++)
+				{
+					_putchar(a);
+					_putchar(b);
+					_putchar(':');
 
-	a = n % 10;
-
-	if (a < 0)
-	{a = -a; }
-
-	_putchar(a + 'a');
-
-	return (a);
+					if (b == '3' && c == '5' && d == '9')
+					{
+						break;
+						_putchar('\n');
+					}
+				}
+			}
+		}
+	}
 }
