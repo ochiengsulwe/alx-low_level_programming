@@ -20,7 +20,7 @@ int print_last_digit(int);
 
 void jack_bauer(void);                                                      
 
-void times_table(void);                                                     
+void print_times_table(int n);                                                     
 
 int add(int, int);                                                          
 
@@ -36,7 +36,7 @@ void print_to_98(int n);
 
 #include <stdlib.h>
 
-
+#include <stdio.h>
 
 ssize_t read_textfile(const char *filename, size_t letters);
 
