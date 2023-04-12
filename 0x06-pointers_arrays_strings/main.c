@@ -3,11 +3,22 @@
 
 int main(void)
 {
-	char str[] = "Expect the best. Prepare for the worst. Capitalize on what comes.\n";
-	char *ptr;
+	char s[] = "ROT13 (\"rotate by 13 places\", sometimes hyphenated ROT-13) is a simple letter substitution cipher.\n";
+	char *p;
 
-	ptr = leet(str);
-	printf("%s",ptr);
-	printf("%s", str);
+	p = rot13(s);
+	printf("%s",p);
+	printf("---------------------------------------\n");
+	printf("%s", s);
+	printf("---------------------------------------\n");
+	p = rot13(s);
+	printf("%s", p);
+	printf("---------------------------------------\n");
+	printf("%s", p);
+	printf("---------------------------------------\n");
+	p = rot13(s);
+	printf("%s", p);
+	printf("---------------------------------------\n");
+	printf("%s", p);
 	return (0);
 }
