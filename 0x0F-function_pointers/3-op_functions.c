@@ -24,12 +24,21 @@ int op_sub(int a, int b)
 }
 
 /**
-  * op_div - Returns the division of two numbers.
-  * @a: The first number.
-  * @b: The second number.
-  * Return: The quotient of a and b.
-  */
-
+ * op_mul - divides two int types
+ * @a: one of the ints
+ * @b: another int
+ * Return: multiplication value of a and b
+ */
+int op_mul(int a, int b)
+{
+	return (a *b);
+}
+/**
+ * op_div - divides two ints
+ * @a:an int
+ * @b: another int
+ * Return: value of the division
+ */
 int op_div(int a, int b)
 {
 	return (a / b);
