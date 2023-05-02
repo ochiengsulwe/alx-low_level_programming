@@ -1,4 +1,5 @@
 *.swp
 _putchar.c
-main.c
 *.sh
+0-main.c
+1-main.c
