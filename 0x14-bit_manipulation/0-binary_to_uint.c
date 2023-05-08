@@ -8,6 +8,7 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
+	unsigned int power(unsigned int base, unsigned int exponent);
 	unsigned int sum = 0;
 	unsigned int i;
 	unsigned int exponent = strlen(b) - 1;
@@ -18,11 +19,24 @@ unsigned int binary_to_uint(const char *b)
 	{
 		if (b[i] == '0' || b[i] == '1')
 		{
-			sum = sum + ((b[i] - '0') * (pow(2, exponent)));
+			sum = sum + ((b[i] - '0') * power(2, exponent));
 			exponent--;
 		}
 		else
 			return (0);
 	}
 	return (sum);
+}
+/**
+ * power - calculates power of a base raised to an exponent
+ * @base: base to which we find its power
+ * @exponent: number to which the base is raised
+ * Returns: returns the power int value
+ */
+unsigned int power(unsigned int base, unsigned int exponent)
+{
+	if (exponent == 0)
+		return (1);
+	else
+		return (base * power(base, exponent - 1));
 }
