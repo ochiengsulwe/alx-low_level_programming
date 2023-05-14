@@ -22,7 +22,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	fd = open(filename, O_RDONLY, 0644);
 	if (fd == -1)
 	{
-		perror("We apparently encountered an error while trying to oen this file");
+		/*perror("We apparently encountered an error while trying to oen this file");*/
 		return (0);
 	}
 	/* allocate space for the read bytes */
