@@ -33,14 +33,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	read_stream = read(fd, buffer, letters);
 	if (read_stream == -1)
 	{
-		perror("Error reading from file");
+		/*perror("Error reading from file");*/
 		close(fd);
 		return (0);
 	}
 	written_stream = write(STDOUT_FILENO, buffer, read_stream);
 	if (read_stream == -1 || written_stream != read_stream)
 	{
-		perror("An error occured");
+		/*perror("An error occured");*/
 		close(fd);
 		return (0);
 	}
