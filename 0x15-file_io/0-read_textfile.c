@@ -12,26 +12,33 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t output;
-	/*char buffer[sizeof(letters)];*/
-	FILE *fd;
+	int fd;
+	ssize_t read_stream, written_stream;
+	char buffer[1024];
 
-	fd = fopen("filename", "r");
-	if (fd == NULL)
-	{
-		perror("An error occurred when trying to access file");
-		return (0);
-	}
 	if (filename == NULL)
+		return (0);
+	fd = open(filename, O_RDONLY, 0644);
+	if (fd == -1)
 	{
-		perror("File is empty");
+		perror("We apparently encountered an error while trying to oen this file");
 		return (0);
 	}
-	output = write(1, filename, sizeof(letters));
-	if (output == -1)
+	/* read from filename */
+	read_stream = read(fd, buffer, letters);
+	if (read_stream == -1)
 	{
-		perror("Some error just occured");
+		perror("Error reading from file");
+		close(fd);
 		return (0);
 	}
-	return (output);
+	written_stream = write(STDOUT_FILENO, buffer,read_stream);
+	if (read_stream == -1 || written_stream != read_stream)
+	{
+		perror("An error occured");
+		close(fd);
+		return (0);
+	}
+	close(fd);
+	return (written_stream);
 }
