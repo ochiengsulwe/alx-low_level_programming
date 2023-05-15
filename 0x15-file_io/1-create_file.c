@@ -13,11 +13,10 @@
 int create_file(const char *filename, char *text_content)
 {
 	int fd;
-	/*mode_t permissions = S_IRUSR | S_IWUSR;*/
 
 	if (!(filename))
 		return (-1);
-	fd = open(filename, O_WRONLY | O_TRUNC | O_CREAT, S_IRUSR | S_IWUSR);
+	fd = open(filename, O_RDWR | O_TRUNC | O_CREAT, S_IRUSR | S_IWUSR);
 	if (fd == -1)
 		return (0);
 	if (!text_content)
