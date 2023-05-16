@@ -8,8 +8,8 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int count = 0;
-	unsigned int flip = 0;
+	unsigned long int count = 0;
+	unsigned long int flip = 0;
 
 	if ( n == m)
 		return (count);
