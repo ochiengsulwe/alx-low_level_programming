@@ -6,7 +6,7 @@
  * Return: exit status 0 on success, or
  *	a none-zero int on failure.
  */
-int file_copy(const char *src, const char *dest)
+void file_copy(const char *src, const char *dest)
 {
 	ssize_t _read;
 	int fd_src, fd_dest;
@@ -42,7 +42,6 @@ int file_copy(const char *src, const char *dest)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_dest);
 		exit(100);
 	}
-	exit(0);
 }
 /**
  * main - takes two args
@@ -55,7 +54,7 @@ int main(int argc, char *argv[])
 {
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "USage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	file_copy(argv[1], argv[2]);
