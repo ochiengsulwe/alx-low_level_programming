@@ -18,11 +18,10 @@ int file_copy(const char *src, const char *dest)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
 		exit(98);
 	}
-	fd_dest = open(dest, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR
-			| S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-	while ((_read = read(fd_src, buffer, sizeof(buffer))) > 0)
+	fd_dest = open(dest, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	while ((_read = read(fd_src, buffer, 1024)) > 0)
 	{
-		if (write(fd_dest, buffer, sizeof(buffer)) != _read || fd_dest == -1)
+		if (write(fd_dest, buffer, _read) != _read || fd_dest == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
 			exit(99);
