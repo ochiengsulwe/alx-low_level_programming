@@ -22,7 +22,7 @@ int file_copy(const char *src, const char *dest)
 			| S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	while ((_read = read(fd_src, buffer, sizeof(buffer))) > 0)
 	{
-		if (!write(fd_dest, buffer, sizeof(buffer)) || fd_dest == -1)
+		if (write(fd_dest, buffer, sizeof(buffer)) != _read || fd_dest == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
 			exit(99);
