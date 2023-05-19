@@ -13,7 +13,7 @@ void file_copy(const char *src, const char *dest)
 	char *buffer[1024];
 
 	fd_src = open(src, O_RDONLY);
-	if (!src || fd_src == -1)
+	if (src == NULL || fd_src == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
 		exit(98);
