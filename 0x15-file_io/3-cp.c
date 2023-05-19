@@ -18,7 +18,7 @@ void file_copy(const char *src, const char *dest)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
 		exit(98);
 	}
-	fd_dest = open(dest, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	fd_dest = open(dest, O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 	if (fd_dest == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", src);
