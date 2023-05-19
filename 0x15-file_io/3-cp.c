@@ -10,7 +10,7 @@ void file_copy(const char *src, const char *dest)
 {
 	ssize_t _read, _write;
 	int fd_src, fd_dest;
-	char *buffer[1024];
+	char buffer[1024];
 
 	fd_src = open(src, O_RDONLY);
 	if (src == NULL || fd_src == -1)
@@ -26,7 +26,7 @@ void file_copy(const char *src, const char *dest)
 	}
 	while ((_read = read(fd_src, buffer, 1024)) > 0)
 	{
-		_write = write(fd_dest, buffer, _read);
+		_write = write(fd_dest, buffer, 1024);
 		if (_write == -1 || _write != _read)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
