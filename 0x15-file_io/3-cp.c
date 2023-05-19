@@ -8,7 +8,7 @@
  */
 void file_copy(const char *src, const char *dest)
 {
-	ssize_t _read;
+	ssize_t _read, _write;
 	int fd_src, fd_dest;
 	char *buffer[1024];
 
@@ -19,9 +19,15 @@ void file_copy(const char *src, const char *dest)
 		exit(98);
 	}
 	fd_dest = open(dest, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (fd_dest == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", src);
+		exit(99);
+	}
 	while ((_read = read(fd_src, buffer, 1024)) > 0)
 	{
-		if (write(fd_dest, buffer, _read) != _read || fd_dest == -1)
+		_write = write(fd_dest, buffer, _read);
+		if (_write == -1 || _write != _read)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
 			exit(99);
