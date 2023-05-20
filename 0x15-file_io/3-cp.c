@@ -6,7 +6,7 @@
  */
 void mem(char **alloc)
 {
-	*alloc = malloc(sizeof(char) * BUFFSIZE);
+	*alloc = malloc(sizeof(char) * BUFSIZ);
 	if (*alloc == NULL)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to file");
@@ -35,7 +35,7 @@ void file_copy(const char *src, const char *dest)
 	}
 	fd_dest = open(dest, O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 	mem(&buffer);
-	while ((_read = read(fd_src, buffer, BUFFSIZE)) > 0)
+	while ((_read = read(fd_src, buffer, BUFSIZ)) > 0)
 	{
 		_write = write(fd_dest, buffer, _read);
 		if (_write == -1 || fd_dest == -1)
