@@ -1,5 +1,21 @@
 #include "main.h"
 /**
+ * mem - dynamically allocates memory space.
+ * @buffer: memory space to be allocated
+ * Return: pointer to the allocated memory
+ */
+char *mem(char *buffer)
+{
+	buffer = malloc(sizeof(char) * BUFFSIZE);
+	if (buffer == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to file %s", src);
+		exit(99);
+	}
+	return (buffer);
+}
+
+/**
  * file_copy - copies contents of src unto dest.
  * @src: the source to copy content from.
  * @dest: file to copy contents to.
@@ -10,7 +26,7 @@ void file_copy(const char *src, const char *dest)
 {
 	ssize_t _read, _write;
 	int fd_src, fd_dest;
-	char buffer[1024];
+	char *buffer;
 
 	fd_src = open(src, O_RDONLY);
 	if (src == NULL || fd_src == -1)
@@ -19,15 +35,11 @@ void file_copy(const char *src, const char *dest)
 		exit(98);
 	}
 	fd_dest = open(dest, O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
-	if (fd_dest == -1)
+	mem(buffer);
+	while ((_read = read(fd_src, buffer, BUFFSIZE)) > 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", src);
-		exit(99);
-	}
-	while ((_read = read(fd_src, buffer, 1024)) > 0)
-	{
-		_write = write(fd_dest, buffer, 1024);
-		if (_write == -1 || _write != _read)
+		_write = write(fd_dest, buffer, _read);
+		if (_write == -1 || fd_dest == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
 			exit(99);
