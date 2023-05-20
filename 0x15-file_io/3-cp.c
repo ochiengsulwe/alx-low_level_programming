@@ -1,18 +1,19 @@
 #include "main.h"
+void file_copy(const char *src, const char *dest);
 /**
  * mem - dynamically allocates memory space.
- * @buffer: memory space to be allocated
+ * @alloc: memory space to be allocated
  * Return: pointer to the allocated memory
  */
-char *mem(char *buffer)
+char *mem(char *alloc)
 {
-	buffer = malloc(sizeof(char) * BUFFSIZE);
-	if (buffer == NULL)
+	alloc = malloc(sizeof(char) * BUFFSIZE);
+	if (alloc == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s", src);
+		dprintf(STDERR_FILENO, "Error: Can't write to file");
 		exit(99);
 	}
-	return (buffer);
+	return (alloc);
 }
 
 /**
@@ -26,7 +27,7 @@ void file_copy(const char *src, const char *dest)
 {
 	ssize_t _read, _write;
 	int fd_src, fd_dest;
-	char *buffer;
+	char *buffer = NULL;
 
 	fd_src = open(src, O_RDONLY);
 	if (src == NULL || fd_src == -1)
