@@ -8,15 +8,14 @@
  */
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
-	int count =  -1;
+	unsigned int count =  0;
 	dlistint_t *mover =  NULL;
 
 	mover = head;
-	while (count < index)
+	while (mover != NULL && count < index)
 	{
 		count++;
 		mover = mover->next;
 	}
-	mover = mover->next;
 	return (mover);
 }
